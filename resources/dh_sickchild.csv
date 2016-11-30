@@ -29,7 +29,7 @@ village,text,
 union,text,
 district,text,
 sub_district,text,
-result,text,
+result,textarray,5,bool
 age,text,
 bmi,bool,
 lon,text,
