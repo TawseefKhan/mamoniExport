@@ -2,6 +2,7 @@
 //auto loader for all classes
 $directory="libs/";
 function __autoload($class_name) {
+    global $directory;
     if (file_exists($directory . $class_name . '.php')) {
         require_once ($directory . $class_name . '.php');
         return;
