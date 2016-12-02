@@ -28,20 +28,19 @@ class Table extends Schema {
     public function createSchema(){
         foreach ($this->keys as $key => $value) {
             //if not array simple
-            if($value=["type"]!="textarray"){
+            if($value["type"]!="textarray"){
                 $row = [];
                 $row["name"] = $key;
-                $row["type"] = $value=["type"];
+                $row["type"] = $value["type"];
                 $this->rowNames[]=$row;
             }
             else{
-                $types = explode(",",$value["subtype"]);
+                $types = explode("~",$value["subtype"]);
                 for ($i=0; $i<$value["size"]; $i++){
                     $row=[];
                     $row["name"] = $key . "_" . $i;
                     $row["type"] = (isset($types[$i])? $types[$i] : $types[0]);
                     $this->rowNames[]=$row;
-                    
                 }
             }
         }
@@ -60,11 +59,13 @@ class Table extends Schema {
     
     private function getVal($data, $type){
         //booleans
+        if($type=="bool"){
             $data = trim($data);
             if($data=="0" || $data=="false" || $data=="" || $data===false)
                 return "false";
             else if($data=="1" || $data=="true" || $data===true)
                 return "true";
+        }
         
         //number
         if($type=="number"){
@@ -101,6 +102,7 @@ class Table extends Schema {
     private function saveCoreData($rawData){ 
         $arr=[];
         $rawData=$rawData["data"];
+        
         foreach ($this->keys as $key => $value) {
             //textarray
             if($value["type"]=="textarray"){
@@ -112,18 +114,18 @@ class Table extends Schema {
                     $row["type"] = (isset($types[$i])? $types[$i] : $types[0]);
                     
                     if(!is_array($rawData[$key])){
-                        $rawData[$key] = explode(",",$rawData[$key] );
+                        $rawData[$key] = explode("~",$rawData[$key] );
                     }
                     if(!isset($rawData[$key][$i]))
                         $rawData[$key][$i]=null;
-                    
-                    
+            
                     $arr[$row["name"]]=  $this->getVal($rawData[$key][$i], $row["type"]);
                 }
             }
             else{
                 if(!isset($rawData[$key]))
                         $rawData[$key]=null;
+                
                 
                 $arr[$key]=  $this->getVal($rawData[$key], $this->keys[$key]["type"]);
             }

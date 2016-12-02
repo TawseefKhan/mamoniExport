@@ -7,15 +7,17 @@ class Schema {
    protected $rowData = [];
    protected $rowPrimary = [];
    
+   
+   
    public function getRowNames(){
        return $this->rowNames;
    }
    
    public function getRowData(){
-       return $this->getRowData();
+       return $this->rowData;
    }
    
    public function getPrimary(){
-       return $this->getRowData();
+       return $this->rowPrimary;
    }
 }

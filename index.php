@@ -19,10 +19,14 @@ $json = $json["forms"];
 
 //loop through the data
 foreach ($json as $data_row) {
+    //add to proper class
     if($data_row["form_type"]=="dh_inventory"){
         $inventory->addRow($data_row);
     }
 }
-$inventory->showData();
+//$inventory->showData();
+$generator = new SqlGenerator("dh_inventory",$inventory);
+echo ($generator->getSql());
 
-//add to proper class
+
+
