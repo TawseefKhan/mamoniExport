@@ -12,7 +12,7 @@ This script simple calls the existing MaMoni API, fetches the data and creates a
 ## Basic Usage
 First clone the project. 
 
-`git clone https://gitlab.com/TawseefKhan/mamoni_export.git`     
+`git clone https://github.com/TawseefKhan/mamoniExport.git`     
 
 Then, once in the same directory run the following command     
 
