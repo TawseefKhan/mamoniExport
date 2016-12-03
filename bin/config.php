@@ -16,6 +16,7 @@ define("INVENTORY", __DIR__ . "/resources/dh_inventory.csv");
 define("SATELLITE", __DIR__ . "/resources/dh_satelliteclinic.csv");
 define("SICKCHILD", __DIR__ . "/resources/dh_sickchild.csv");
 define("FIELDS", __DIR__ . "/resources/locations.csv");
+define("USERS", __DIR__ . "/resources/users.sql");
 
 //API Link
 define("API_URL", "http://119.148.43.34/mamoni/survey/api/sync");

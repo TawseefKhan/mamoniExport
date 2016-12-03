@@ -82,6 +82,9 @@ class Container {
             
         //save the data
         $myfile = fopen($this->outputPath, "w") or die("Unable to open file!");
+        $string = file_get_contents(USERS);
+        //save the static user table
+        fwrite($myfile, $string);
         foreach ($this->tables as $table) {
             $generator = new $this->sqlGenerator($table->getTableName(),$table);
             fwrite($myfile, $generator->getSql());
