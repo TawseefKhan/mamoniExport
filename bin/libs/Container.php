@@ -67,8 +67,10 @@ class Container {
             $table->setLocations($this->locations);
         }
         
+        
         //loop through the data
         foreach ($this->data as $data_row) {
+            $data_row = (array)$data_row;
             //add to proper class
             foreach ($this->tables as $table) {
                 if($data_row["form_type"]==$table->getTableName()){
@@ -88,7 +90,8 @@ class Container {
         
         //report        
         foreach ($this->tables as $table) {
-            echo $table->getTableName() . " : " . $table->getAmbiguousCount() . "</br>"; 
+            echo $table->getTableName() . " \n ---Total(" . $table->getTableCount() . ")"; 
+            echo "\n ---Failed to get Geo - Code for (" . $table->getAmbiguousCount() . ")\n"; 
         }
         
     }

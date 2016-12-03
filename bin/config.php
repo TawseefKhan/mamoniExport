@@ -18,6 +18,6 @@ define("SICKCHILD", __DIR__ . "/resources/dh_sickchild.csv");
 define("FIELDS", __DIR__ . "/resources/locations.csv");
 
 //API Link
-define("API_URL", "");
-define("USERNAME", "");
-define("PASSWORD", "");
+define("API_URL", "http://119.148.43.34/mamoni/survey/api/sync");
+define("USERNAME", $argv[1]);
+define("PASSWORD", $argv[2]);

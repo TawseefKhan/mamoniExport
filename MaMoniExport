@@ -1,2 +1,20 @@
 <?php
+if(!isset($argv[1])){
+    echo "Please enter usernname";
+    exit();
+}
+
+if(!isset($argv[2])){
+    echo "Please enter password";
+    exit();
+}
+
+if(!isset($argv[3])){
+    echo "Please enter directory";
+    exit();
+}
+
+define("DATAPATH", __DIR__ . "/" . $argv[3]);
+
+
 include("bin/index.php");

@@ -8,6 +8,7 @@ class Table extends Schema {
     protected $fieldConfigPath;
     protected $geoFields;
     protected $ambiguousCount = 0;
+    protected $counter = 0;
             
     function __construct($tableName, $fieldConfigPath) {
        $this->tableName = $tableName; 
@@ -101,6 +102,7 @@ class Table extends Schema {
     
     //will map the geoData
     private function saveGeoData($rowData, $arr=[]){
+        $rowData["data"] = (array)$rowData["data"];
         $district = $rowData["user_district"];
         $facility = (isset($rowData["data"]["facility"])?$rowData["data"]["facility"]:null);
         $unions = null;
@@ -147,6 +149,10 @@ class Table extends Schema {
     
     public function getAmbiguousCount(){
         return $this->ambiguousCount;
+    }
+    
+    public function getTableCount(){
+        return $this->counter;
     }
     
     private function checkIfSame($arr, $key_str){
@@ -269,25 +275,35 @@ class Table extends Schema {
     //will map form core data
     private function saveCoreData($rawData){ 
         $arr=[];
-        $rawData=$rawData["data"];
+        $rawData=(array)$rawData["data"];
         
         foreach ($this->keys as $key => $value) {
+            $value = (array)$value;
             //textarray
             if($value["type"]=="textarray"){
                 //loop through the size
-                $types = explode(",",$value["subtype"]);
+                $types = explode("~",$value["subtype"]);
                 for ($i=0; $i<$value["size"]; $i++){
                     $row=[];
                     $row["name"] = $key . "_" . $i;
                     $row["type"] = (isset($types[$i])? $types[$i] : $types[0]);
                     
                     if(!is_array($rawData[$key])){
-                        $rawData[$key] = explode("~",$rawData[$key] );
+                        $rawData[$key] = explode(",",$rawData[$key] );
                     }
                     if(!isset($rawData[$key][$i]))
                         $rawData[$key][$i]=null;
+                    
+                    $type="";
+                    if(isset($types[$i]))
+                        $type=$types[$i];
+                    else
+                        $type=$types[0];
+                    
+//                    var_dump($rawData[$key][$i]);
+//                    echo $type . "</br>";
             
-                    $arr[$row["name"]]=  $this->getVal($rawData[$key][$i], $row["type"]);
+                    $arr[$row["name"]]=  $this->getVal($rawData[$key][$i], $type);
                 }
             }
             else{
@@ -305,6 +321,8 @@ class Table extends Schema {
     
     //will add a single row
     public function addRow($data){
+        $data = (array)$data;
+        $this->counter++;
         $newRow = [];
         $newRow = array_merge($newRow, $this->saveMetaData($data));
         $newRow = array_merge($newRow, $this->saveCoreData($data));

@@ -1,6 +1,6 @@
+start_time,time,03:53:43 PM,
 facility_id,number,,
 client_name,text,,
-start_time,time,03:53:43 PM,
 instrument_sp_name,text,,
 instrument_sp_designation,number,,
 i_electronic_autoclev,textarray,3,bool

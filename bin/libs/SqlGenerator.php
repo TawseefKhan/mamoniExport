@@ -31,7 +31,7 @@ class SqlGenerator {
             
             $i++;
         }
-        $query .= ");";
+        $query .= ", CONSTRAINT ".$this->tableName."_pk PRIMARY KEY (_id));";
         
         $this->sql .= $query;
     }
