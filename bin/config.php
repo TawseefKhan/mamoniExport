@@ -15,6 +15,7 @@ define("FAMILYPLAN", __DIR__ . "/resources/dh_familyplan.csv");
 define("INVENTORY", __DIR__ . "/resources/dh_inventory.csv");
 define("SATELLITE", __DIR__ . "/resources/dh_satelliteclinic.csv");
 define("SICKCHILD", __DIR__ . "/resources/dh_sickchild.csv");
+define("FIELDS", __DIR__ . "/resources/locations.csv");
 
 //API Link
 define("API_URL", "");

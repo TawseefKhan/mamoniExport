@@ -8,7 +8,7 @@ $json = $json["forms"];
 
 
 //container that will call all the function within the injected tables
-$container = new Container($json, "data.txt", SqlGenerator::class);
+$container = new Container($json, "data.txt", SqlGenerator::class, FIELDS);
 
 $container->addTable(new Table("dh_inventory",INVENTORY ));
 $container->addTable(new Table("dh_antenantals", ANTINANTALS ));

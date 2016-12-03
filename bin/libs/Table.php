@@ -30,7 +30,7 @@ class Table extends Schema {
             $this->keys[$row[0]]["type"] =  $row[1];
             if($row[1]=="textarray"){
                 $this->keys[$row[0]]["size"] = $row[2];
-                 $this->keys[$row[0]]["subtype"] = $row[3];
+                $this->keys[$row[0]]["subtype"] = $row[3];
             }
         } catch (Exception $ex) {
             echo "Please make sure that the field file is properly formatted";
@@ -85,7 +85,7 @@ class Table extends Schema {
     
     //will map the geoData
     private function saveGeoData($rawData, $arr=[]){
-        
+        $district = $rawData["user_district"];
     }
     
     private function getVal($data, $type){
@@ -176,7 +176,7 @@ class Table extends Schema {
         $newRow = [];
         $newRow = array_merge($newRow, $this->saveMetaData($data));
         $newRow = array_merge($newRow, $this->saveCoreData($data));
-//        $this->saveGeoData($data, $newRow);
+        $newRow = array_merge($newRow, $this->saveGeoData($data));
         $this->rowData[]=$newRow;
     }
     
