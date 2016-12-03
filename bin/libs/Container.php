@@ -64,6 +64,7 @@ class Container {
     public function generateSql(){
         foreach ($this->tables as $table) {
             $this->createSchema($table);
+            $table->setLocations($this->locations);
         }
         
         //loop through the data
@@ -84,6 +85,11 @@ class Container {
             fwrite($myfile, $generator->getSql());
         }
         fclose($myfile);
+        
+        //report        
+        foreach ($this->tables as $table) {
+            echo $table->getTableName() . " : " . $table->getAmbiguousCount() . "</br>"; 
+        }
         
     }
     

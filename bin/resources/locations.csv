@@ -1,39 +1,54 @@
-habiganj,District Level ,District,60,36,,
-habiganj,Upazila Health Complex,Nabiganj,60,36,77,
-habiganj,Union Health & Family Welfare Center,Auskandi,60,36,77,13
-habiganj,Union Health & Family Welfare Center,Purba,60,36,77,90
-habiganj,Union Health & Family Welfare Center,Paschim,60,36,77,94
-habiganj,Union Health & Family Welfare Center,Debpara,60,36,77,21
-habiganj,Satellite Clinic,Auskandi,60,36,77,13
-habiganj,Satellite Clinic,Purba,60,36,77,90
-habiganj,Satellite Clinic,Paschim,60,36,77,94
-habiganj,Satellite Clinic,Debpara,60,36,77,21
-noakhali,District Level ,District,20,75,,
-noakhali,Upazila Health Complex,Begumganj,20,75,7,
-noakhali,Union Health & Family Welfare Center,Gopalpur,20,75,7,45
-noakhali,Union Health & Family Welfare Center,Alyerpur,20,75,7,10
-noakhali,Union Health & Family Welfare Center,Durgapur,20,75,7,38
-noakhali,Union Health & Family Welfare Center,Narottampur,20,75,7,49
-noakhali,Satellite Clinic,Alyerpur ,20,75,7,10
-noakhali,Satellite Clinic,Durgapur,20,75,7,38
-noakhali,Satellite Clinic,Narottampur ,20,75,7,49
-lakshmipur ,District Level ,District,20,51,,
-lakshmipur ,Upazila Health Complex,Kamal,20,51,33,
-lakshmipur ,Union Health & Family Welfare Center,RamgatiUpz,20,51,73,23
-lakshmipur ,Union Health & Family Welfare Center,Hajirhat,20,51,33,83
-lakshmipur ,Union Health & Family Welfare Center,Kadira,20,51,33,63
-lakshmipur ,Union Health & Family Welfare Center,Falcon,20,51,33,47
-lakshmipur ,Satellite Clinic,RamgatiUpz,20,51,73,23
-lakshmipur ,Satellite Clinic,Hajirhat,20,51,33,83
-lakshmipur ,Satellite Clinic,Kadira,20,51,33,63
-lakshmipur ,Satellite Clinic,Falcon,20,51,33,47
-jhalakati ,District Level ,Hospital,10,42,,
-jhalakati ,Upazila Health Complex,Kanthalia,10,42,43,
-jhalakati ,Union Health & Family Welfare Center,Saulajalia,10,42,43,94
-jhalakati ,Union Health & Family Welfare Center,Chenchri,10,42,43,47
-jhalakati ,Union Health & Family Welfare Center,Kanthalia,10,42,43,63
-jhalakati ,Union Health & Family Welfare Center,Patikhalghata,10,42,43,79
-jhalakati ,Satellite Clinic,Saulajalia,10,42,43,94
-jhalakati ,Satellite Clinic,Chenchri,10,42,43,47
-jhalakati ,Satellite Clinic,Kanthalia,10,42,43,63
-jhalakati ,Satellite Clinic,Patikhalghata,10,42,43,79
+habiganj,district ,Habiganj District Hospital,60,36,,
+habiganj,complex,Nabiganj UHC,60,36,77,
+habiganj,family,Ausk,60,36,77,13
+habiganj,family,Purba,60,36,77,90
+habiganj,family,Paschim,60,36,77,94
+habiganj,family,Deb,60,36,77,21
+habiganj,satellite,Ausk,60,36,77,13
+habiganj,satellite,ask,60,36,77,13
+habiganj,satellite,Purba,60,36,77,90
+habiganj,satellite,Paschim,60,36,77,94
+habiganj,satellite,Deb,60,36,77,21
+noakhali,district ,Noakhali District Hospital,20,75,,
+noakhali,complex,Begumganj UHC,20,75,7,
+noakhali,family,Gopal,20,75,7,45
+noakhali,family,Alyer,20,75,7,10
+noakhali,family,Alyr,20,75,7,10
+noakhali,family,Alyar,20,75,7,10
+noakhali,family,Durg,20,75,7,38
+noakhali,family,Narot,20,75,7,49
+noakhali,satellite,Alyer,20,75,7,10
+noakhali,satellite,Durg,20,75,7,38
+noakhali,satellite,Narot,20,75,7,49
+lakshmipur ,district ,Lakshmipur District Hospital,20,51,,
+lakshmipur ,complex,Kamal Nagar UHC,20,51,33,
+lakshmipur ,family,Alex,20,51,73,23
+lakshmipur ,family,Ramgati,20,51,73,23
+lakshmipur ,family,Haji,20,51,33,83
+lakshmipur ,family,Kadira,20,51,33,63
+lakshmipur ,family,Khadira,20,51,33,63
+lakshmipur ,family,Fal,20,51,33,47
+lakshmipur ,satellite,Ramgati,20,51,73,23
+lakshmipur ,satellite,Alex,20,51,73,23
+lakshmipur ,satellite,Haji,20,51,33,83
+lakshmipur ,satellite,Kad,20,51,33,63
+lakshmipur ,satellite,Fal,20,51,33,47
+jhalakati ,district ,Jhalokati District Hospital,10,42,,
+jhalakati ,complex,Kanthalia UHC,10,42,43,
+jhalakati ,family,Saula,10,42,43,94
+jhalakati ,family,jalia,10,42,43,94
+jhalakati ,family,Chen,10,42,43,47
+jhalakati ,family,Rampur,10,42,43,47
+jhalakati ,family,Kan,10,42,43,63
+jhalakati ,family,Patik,10,42,43,79
+jhalakati ,family,Pathik,10,42,43,79
+jhalakati ,family,Pothik,10,42,43,79
+jhalakati ,family,Potik,10,42,43,79
+jhalakati ,satellite,Saula,10,42,43,94
+jhalakati ,satellite,jalia,10,42,43,94
+jhalakati ,satellite,Chen,10,42,43,47
+jhalakati ,satellite,Rampur,10,42,43,47
+jhalakati ,satellite,Kan,10,42,43,63
+jhalakati ,satellite,ghata,10,42,43,79
+jhalakati ,satellite,Pati,10,42,43,79
+jhalakati ,satellite,khal,10,42,43,79
