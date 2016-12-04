@@ -4,7 +4,7 @@ $directory="/libs/";
 function __autoload($class_name) {
     global $directory;
     if (file_exists(__DIR__  . $directory . $class_name . '.php')) {
-        require_once ($directory . $class_name . '.php');
+        require_once (__DIR__  . $directory . $class_name . '.php');
         return;
     }
 }
