@@ -56,6 +56,15 @@ class Table extends Schema {
             array("name" => "checked_by_user" , "type" => "number" )
             
         ));
+
+ 	//geo Data
+        $this->rowNames = array_merge($this->rowNames,array(
+            array("name" => "_div" , "type" => "number" ),
+            array("name" => "_dist" , "type" => "number" ),
+            array("name" => "_upz" , "type" => "number" ),
+            array("name" => "_union" , "type" => "number" ),
+            array("name" => "_geoProxy" , "type" => "text" )
+        ));
         
         
         //form Data
@@ -78,14 +87,6 @@ class Table extends Schema {
             }
         }
         
-        //meta Data
-        $this->rowNames = array_merge($this->rowNames,array(
-            array("name" => "_div" , "type" => "number" ),
-            array("name" => "_dist" , "type" => "number" ),
-            array("name" => "_upz" , "type" => "number" ),
-            array("name" => "_union" , "type" => "number" ),
-            array("name" => "_geoProxy" , "type" => "text" )
-        ));
         
 //        var_dump($this->rowNames);
     }
