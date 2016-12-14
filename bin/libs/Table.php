@@ -110,16 +110,13 @@ class Table extends Schema {
         {
             $unions = $rowData["data"]["union"];
         }
-        $village = null;
-        if(isset($rowData["data"]["village"]))
-            $village = $rowData["data"]["village"];
         
 //        var_dump($rowData);
         
         //filter the array one by one
         $arr = $this->getLocationOptions($this->locations, $district);
         $arr = $this->getLocationOptions($arr, $facility);
-        $arr = $this->getLocationOptionsMultiple($arr, array($village, $unions));
+        $arr = $this->getLocationOptionsMultiple($arr, array($unions));
         
         //save the data to the array
         if(sizeof($arr)==1){
@@ -136,14 +133,20 @@ class Table extends Schema {
             );
         }
         else{
-            $this->ambiguousCount++;
-            return array(
+	    $geoDataTemp = array(
                 "_div" => $this->checkIfSame($arr, "div"),
                 "_dist" => $this->checkIfSame($arr, "dist"),
                 "_upz" => $this->checkIfSame($arr, "upz"),
-                "_union" => $this->checkIfSame($arr, "union"),
-                "_geoProxy" => json_encode($arr)
+                "_union" => $this->checkIfSame($arr, "union")
             );
+            if( $geoDataTemp["_div"] ==null || $geoDataTemp["_dist"] ==null || $geoDataTemp["_upz"] ==null || $geoDataTemp["_union"] ==null){
+            	$this->ambiguousCount++;
+                $geoDataTemp["_geoProxy"] = json_encode($arr);
+	    }
+	    else{
+	        $geoDataTemp["_geoProxy"] = "NONE";
+	    }
+            return $geoDataTemp; 
         }
     }
     
@@ -182,7 +185,7 @@ class Table extends Schema {
             foreach ($arr as $key => $value) {
 //                var_dump($query);
 //                echo strtolower($query[0]) . " : " . strtolower($query[1]) . "</br>" ;
-                if ((strpos(strtolower($query[0]), $key) !== false) || (strpos(strtolower($query[1]), $key) !== false)) {
+                if (strpos(strtolower($query[0]), $key) !== false) {
                     $newArr[$key] = $value;
                 }
                 else{
@@ -325,8 +328,8 @@ class Table extends Schema {
         $this->counter++;
         $newRow = [];
         $newRow = array_merge($newRow, $this->saveMetaData($data));
-        $newRow = array_merge($newRow, $this->saveCoreData($data));
         $newRow = array_merge($newRow, $this->saveGeoData($data));
+        $newRow = array_merge($newRow, $this->saveCoreData($data));
         $this->rowData[]=$newRow;
     }
     
